@@ -4,8 +4,9 @@
 print(2 + 3)  # Addition
 print(3 - 1)  # Subtraction
 print(2 * 3)  # Multiplication
+print(3 + 2)  # addition
 print(9 / 3)  # Division
-print(9**3)  # Floor Division
+print(9 ** 3)  # Floor Division
 print(9 % 3)  # Modulus
 print(9 // 3)  # Floor Division
 
