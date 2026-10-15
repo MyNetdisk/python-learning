@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Flask 练习{% endblock %}</title>
+    <style>
+        body { font-family: sans-serif; max-width: 720px; margin: 40px auto; padding: 0 16px; }
+        nav { margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid #eee; }
+        nav a { margin-right: 12px; text-decoration: none; color: #0066cc; }
+        form { margin-top: 16px; }
+        label { display: block; margin-top: 10px; }
+        input, textarea { padding: 6px; }
+        button { margin-top: 12px; padding: 6px 12px; }
+        .result { margin-top: 16px; font-weight: bold; }
+    </style>
+</head>
+<body>
+<nav>
+    <a href="/">首页</a>
+    <a href="/grade">成绩计算器</a>
+    <a href="/bmi">BMI 计算器</a>
+    <a href="/blog">博客应用</a>
+    <a href="/todo">任务管理器</a>
+</nav>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}成绩计算器{% endblock %}
+
+{% block content %}
+<h1>成绩计算器</h1>
+
+<form method="post">
+    <label>
+        科目名称：
+        <input type="text" name="subject" value="{{ subject or '' }}" required>
+    </label>
+
+    <label>
+        分数：
+        <input type="number" name="score" step="0.01" value="{{ score if score is not none else '' }}" required>
+    </label>
+
+    <br>
+    <button type="submit">计算</button>
+</form>
+
+{% if message %}
+<p class="result">{{ message }}</p>
+{% endif %}
+{% endblock %}

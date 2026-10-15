@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}BMI 计算器{% endblock %}
+
+{% block content %}
+<h1>BMI 计算器</h1>
+
+<form method="post">
+    <label>
+        体重（kg）：
+        <input type="number" name="weight" step="0.01" value="{{ weight if weight is not none else '' }}" required>
+    </label>
+
+    <label>
+        身高（cm）：
+        <input type="number" name="height" step="0.01" value="{{ height_cm if height_cm is not none else '' }}"
+               required>
+    </label>
+
+    <br>
+    <button type="submit">计算</button>
+</form>
+
+{% if message %}
+<p class="result">{{ message }}</p>
+{% endif %}
+{% endblock %}

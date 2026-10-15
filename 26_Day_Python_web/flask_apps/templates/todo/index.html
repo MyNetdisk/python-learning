@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}任务管理器{% endblock %}
+
+{% block content %}
+<h1>任务管理器</h1>
+
+<form method="post" action="{{ url_for('todo.add') }}">
+    <input type="text" name="title" placeholder="输入新任务..." style="width:70%;" required>
+    <button type="submit">添加</button>
+</form>
+
+{% if tasks %}
+<ul style="list-style:none; padding:0; margin-top:20px;">
+    {% for task in tasks %}
+    <li style="padding:10px 0; border-bottom:1px solid #eee; display:flex; align-items:center; gap:10px;">
+        <form method="post" action="{{ url_for('todo.toggle', task_id=task.id) }}">
+            <button type="submit" style="margin:0; padding:4px 8px;">
+                {% if task.done %}✅{% else %}☐{% endif %}
+            </button>
+        </form>
+        <span style="{% if task.done %}text-decoration:line-through; color:#999;{% endif %}">
+            {{ task.title }}
+        </span>
+        <form method="post" action="{{ url_for('todo.delete', task_id=task.id) }}" style="margin-left:auto;"
+              onsubmit="return confirm('确定删除？');">
+            <button type="submit" style="margin:0; padding:4px 8px; color:red;">删除</button>
+        </form>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p style="margin-top:20px; color:#999;">还没有任务，添加一个吧！</p>
+{% endif %}
+{% endblock %}

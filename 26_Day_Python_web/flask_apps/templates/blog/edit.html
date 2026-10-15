@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}编辑文章{% endblock %}
+
+{% block content %}
+<h1>编辑文章</h1>
+
+<form method="post">
+    <label>
+        标题：<br>
+        <input type="text" name="title" value="{{ post.title }}" style="width:100%;" required>
+    </label>
+    <br><br>
+    <label>
+        内容：<br>
+        <textarea name="content" rows="8" style="width:100%;" required>{{ post.content }}</textarea>
+    </label>
+    <br>
+    <button type="submit">保存</button>
+    <a href="{{ url_for('blog.index') }}">返回</a>
+</form>
+{% endblock %}
